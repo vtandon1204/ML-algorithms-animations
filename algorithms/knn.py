@@ -36,7 +36,6 @@ def animate_knn(X, y, new_point, k_max):
         neighbors = [knn_model._predict(new_point)]  # Ensure it's a list
 
         trace_neighbors = go.Scatter(
-            title="K-Nearest Neighbours Algorithm Animation",
             x=X[:, 0], y=X[:, 1], mode='markers',
             marker=dict(color=y, colorscale=['blue', 'orange']),
             name='Data Points'
