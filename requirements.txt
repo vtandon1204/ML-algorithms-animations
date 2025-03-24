@@ -1,6 +1,6 @@
 disutils
 Flask==2.3.3
 plotly==5.7.0
-scikit-learn==1.2.1
+scikit-learn>=1.3.0
 numpy==1.24.1
 matplotlib==3.8.0
