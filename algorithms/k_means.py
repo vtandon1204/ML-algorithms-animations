@@ -50,6 +50,7 @@ class K_Means:
     def create_frame(self, X, centroids, clusters, iteration):
         # Scatter plot for data points colored by cluster
         trace_data_points = go.Scatter(
+            title="K-Means Algorithm Animation",
             x=X[:, 0], y=X[:, 1],
             mode='markers',
             marker=dict(color=clusters, size=8, colorscale='Viridis', line=dict(width=0.2)),

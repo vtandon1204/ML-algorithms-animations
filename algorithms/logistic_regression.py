@@ -80,7 +80,7 @@ def plot_animation(frames: list, X: np.ndarray, Y: np.ndarray, x_initial: np.nda
             go.Scatter(x=x_initial, y=y_initial, mode='lines', name='Initial Decision Boundary')
         ],
         layout=go.Layout(
-            title="Logistic Regression Animation",
+            title="Logistic Regression Algorithm Animation",
             xaxis_range=[x_min, x_max],
             yaxis_range=[y_min, y_max],
             updatemenus=[{
