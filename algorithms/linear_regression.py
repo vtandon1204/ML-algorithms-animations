@@ -10,20 +10,24 @@ class LinearRegression:
     Parameters:
         learning_rate: float - The learning rate for gradient descent.
         no_of_iterations: int - The number of iterations for gradient descent.
+        samples: int - Number of data points.
+        noise: float - Noise level in the data.
     """
 
-    def __init__(self, learning_rate=0.01, no_of_iterations=100):
+    def __init__(self, learning_rate=0.01, no_of_iterations=100, samples=100, noise=15):
         self.learning_rate = learning_rate
         self.no_of_iterations = no_of_iterations
+        self.samples = samples
+        self.noise = noise
         self.w = None  # Weight
         self.b = 0  # Bias
 
-    def generate_data(self, noise=15, samples=100):
+    def generate_data(self):
         """
         Generates synthetic linear data with specified noise and sample size.
         """
         X, y = datasets.make_regression(
-            n_samples=samples, n_features=1, n_informative=1, noise=noise, random_state=42
+            n_samples=self.samples, n_features=1, n_informative=1, noise=self.noise, random_state=42
         )
         return X, y
 
@@ -66,7 +70,7 @@ class LinearRegression:
         Creates a frame for animation with the current model state.
         """
         return go.Frame(
-            data=[
+            data=[ 
                 go.Scatter(x=X[:, 0], y=y, mode="markers", name="Data Points"),
                 go.Scatter(x=X[:, 0], y=y_pred, mode="lines", name=f"Iteration {iteration}")
             ],
@@ -109,6 +113,6 @@ if __name__ == "__main__":
     samples = st.sidebar.slider("Sample Size", 50, 200, 100)
     
     # Model and data
-    model = LinearRegression(learning_rate=learning_rate, no_of_iterations=no_of_iterations)
-    X, y = model.generate_data(noise=noise, samples=samples)
+    model = LinearRegression(learning_rate=learning_rate, no_of_iterations=no_of_iterations, samples=samples, noise=noise)
+    X, y = model.generate_data()
     model.fit(X, y)
