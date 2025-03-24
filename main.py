@@ -2,7 +2,7 @@ from algorithms.linear_regression import LinearRegression
 from algorithms.logistic_regression import LogisticRegression
 from algorithms.knn import KNN
 from algorithms.k_means import KMeans
-from algorithms.dbscan import DBSCAN  # Assuming DBSCAN is implemented here
+from algorithms.dbscan import DBSCAN 
 from utils.data_generation import generate_classification_data
 
 def plot_linear_regression():
